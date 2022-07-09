@@ -299,7 +299,7 @@ router.post('/verification', async (req, res) => {
 
     console.log(mail);
     const token_mail_verification = jwt.sign(mail, 'trevor', {
-      expiresIn: '1d',
+      expiresIn: '1h',
     });
 
     console.log(token_mail_verification);

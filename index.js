@@ -13,7 +13,7 @@ const app = express();
 //installing our routes
 app.use(cors());
 app.use(express.json());
-app.get('/', (req, res) => res.send('Updated server'));
+app.get('/', (req, res) => res.send('Update 3'));
 app.use('/api', routes); //new
 app.listen(8000, () => {
   console.log(`Server listening on port 8000`);

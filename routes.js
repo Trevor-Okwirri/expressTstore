@@ -6,10 +6,8 @@ const User = require('./models/User');
 const Order = require('./models/Order');
 var SHA256 = require('crypto-js/sha256');
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
+//const nodemailer = require('nodemailer');
 const emailValidator = require('email-validator');
-const easyInvoice = require('easyinvoice');
-const fs = require('fs');
 
 authenticateAdminToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];

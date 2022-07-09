@@ -76,7 +76,7 @@ authenticateUserAndAdminToken = (req, res, next) => {
 
 //Get all products
 
-router.get('/products', authenticateAdminToken, async (req, res) => {
+router.get('/products', async (req, res) => {
   try {
     const products = await Product.find();
     res.send(products);
@@ -94,7 +94,7 @@ router.get('/carts', authenticateAdminToken, async (req, res) => {
   }
 });
 
-router.post('/products', async (req, res) => {
+router.post('/products', authenticateAdminToken, async (req, res) => {
   try {
     const product = new Product({
       name: req.body.name,

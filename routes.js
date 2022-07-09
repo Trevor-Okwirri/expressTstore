@@ -303,7 +303,7 @@ router.post('/verification', async (req, res) => {
     });
 
     console.log(token_mail_verification);
-    url = 'http://localhost:8000/api/';
+    url = 'https://express-tstore.vercel.app/api/';
 
     var url = url + 'verify?id=' + token_mail_verification;
 

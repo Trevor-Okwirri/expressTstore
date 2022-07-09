@@ -6,7 +6,7 @@ const User = require('./models/User');
 const Order = require('./models/Order');
 var SHA256 = require('crypto-js/sha256');
 const jwt = require('jsonwebtoken');
-//const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 const emailValidator = require('email-validator');
 
 authenticateAdminToken = (req, res, next) => {
@@ -307,35 +307,34 @@ router.post('/verification', async (req, res) => {
 
     var url = url + 'verify?id=' + token_mail_verification;
 
-    res.send(url);
-    /*
     let transporter = nodemailer.createTransport({
-        name : "www.domain.com",
-        host: "smtp.domain.com",
-        port: 323,
-        secure: false,
-        auth: {
-            user: "user@domain.com",
-            pass: "Password"
-        }
-    })
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'tokwirri@gmail.com',
+        pass: 'znncsmvottxqjmrv',
+      },
+    });
 
-    let info = await transporter.sendMail({
-        from: '"Name" <user@domain.com>',
+    let info = await transporter.sendMail(
+      {
+        from: '"T-Store" tokwirri@gmail.com',
         to: user.email,
-        subject: "Account Verification",
-        text: "Click on the link below to verify your account " + url
-    }, (error, info) => {
-        if(error){
-            console.log(error)
-            return;
+        subject: 'Account Verification',
+        text: 'Click on the link below to verify your account ' + url,
+      },
+      (error, info) => {
+        if (error) {
+          console.log(error);
+          return;
         }
-        console.log("Verification email sent succesfully");
+        console.log('Verification email sent succesfully');
         console.log(info);
         transporter.close();
-
-	console.log(url)
-    })*/
+      }
+    );
+    res.send('Verification email sent successfullly');
   } catch (error) {
     res.send(error);
   }

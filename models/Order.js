@@ -22,8 +22,13 @@ let itemSchema = new Schema(
   },
   { timestamps: true }
 );
-const cartSchema = new Schema(
+const orderSchema = new Schema(
   {
+    orderId: {
+      type: String,
+      unique: true,
+      required: true,
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -34,8 +39,15 @@ const cartSchema = new Schema(
       default: 0,
       type: Number,
     },
+    isPaid: {
+      type: Boolean,
+      default: false,
+    },
+    paymentMethod: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Cart', cartSchema);
+module.exports = mongoose.model('Order', orderSchema);

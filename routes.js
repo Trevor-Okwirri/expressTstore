@@ -322,9 +322,9 @@ router.post('/verification', async (req, res) => {
         from: '"T-Store" tokwirri@gmail.com',
         to: user.email,
         subject: 'Account Verification',
-        text: `Click on the link below to verify your email 
-          ${url} 
-          If you did not sign up for a user account, you can safely ignore this email.`,
+        text: `Click on the link below to verify your email
+${url}
+If you did not sign up for a user account, you can safely ignore this email.`,
       },
       (error, info) => {
         if (error) {

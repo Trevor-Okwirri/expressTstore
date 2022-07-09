@@ -326,15 +326,13 @@ router.post('/verification', async (req, res) => {
       },
       (error, info) => {
         if (error) {
-          console.log(error);
+          res.send(error);
           return;
         }
-        console.log('Verification email sent succesfully');
-        console.log(info);
+        res.send(info);
         transporter.close();
       }
     );
-    res.send('Verification email sent successfullly');
   } catch (error) {
     res.send(error);
   }

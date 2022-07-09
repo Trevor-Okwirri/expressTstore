@@ -333,9 +333,9 @@ router.post('/verification', async (req, res) => {
           return;
         }
         transporter.close();
+        res.send(info);
       }
     );
-    res.send('Verification email sent successfully');
   } catch (error) {
     res.send(error);
   }

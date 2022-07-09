@@ -5,13 +5,15 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_CONNECTION + '/t-store').then(() => {
-  const app = express();
-  //installing our routes
-  app.use(cors());
-  app.use(express.json());
-  app.use('/api', routes); //new
-  app.listen(process.env.PORT, () => {
-    console.log(`Sever listening on port ${process.env.PORT}`);
-  });
+mongoose.connect(
+  'mongodb+srv://trevorokwirri:tresh@database1.zm15qv1.mongodb.net/?retryWrites=true&w=majority'
+);
+
+const app = express();
+//installing our routes
+app.use(cors());
+app.use(express.json());
+app.use('/api', routes); //new
+app.listen(8000, () => {
+  console.log(`Sever listening on port 8000`);
 });

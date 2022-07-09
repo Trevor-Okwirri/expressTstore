@@ -15,7 +15,7 @@ authenticateAdminToken = (req, res, next) => {
   if (!token) {
     return res.status(401).send('Access Denied');
   } else {
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, user) => {
+    jwt.verify(token, 'trevorokwirri@1234', (error, user) => {
       if (error) {
         return res.status(403).send(error);
       } else {
@@ -36,7 +36,7 @@ authenticateUserToken = (req, res, next) => {
   if (!token) {
     return res.status(401).send('Access Denied');
   } else {
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, user) => {
+    jwt.verify(token, 'trevorokwirri@1234', (error, user) => {
       if (error) {
         return res.sendStatus(403)('Action not allowed');
       } else {
@@ -56,7 +56,7 @@ authenticateUserAndAdminToken = (req, res, next) => {
   if (!token) {
     return res.status(401).send('Access Denied');
   } else {
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, user) => {
+    jwt.verify(token, 'trevorokwirri@1234', (error, user) => {
       if (error) {
         return res.sendStatus(403)('Action not allowed');
       } else {

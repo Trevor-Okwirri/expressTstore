@@ -325,7 +325,7 @@ router.post('/verification', async (req, res) => {
         text:
           'Click on the link below to verify your email ' +
           url +
-          ' If you did not sign up for a user account, you can safely ignore this email.',
+          ' \nIf you did not sign up for a user account, you can safely ignore this email.',
       },
       (error, info) => {
         if (error) {
